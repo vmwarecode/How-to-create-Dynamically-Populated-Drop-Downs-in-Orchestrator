@@ -1,0 +1,55 @@
+Action:
+?
+?
+?
+input: Location - string
+?
+return: array/string
+?
+?
+?
+?
+?
+action script;
+?
+?
+?
+    if (Location == "NY") {
+?
+      return ["Prod", "Test"];
+?
+    } else if (Location == "London") {
+?
+      return ["Prod", "Dev", "Test"];
+?
+    } else {
+?
+      return ["Unknown"];
+?
+    }
+?
+?
+?
+-------------
+?
+?
+?
+?
+?
+Workflow:
+?
+?
+?
+Input1: Location - string
+?
+Input2: Hostname - string
+?
+?
+?
+?
+?
+Workflow Presentation tab;
+?
+Location - set the property to Predefined Answers, populate the array with London and NY
+?
+Hostname  - set the property to Predefined list of elements - click the puzzle button on the far right and search for your Action. This will populate a result but it's missing the call for the variable. You'll get an entry like this "GetAction("com.mine","Location").call()" and need to update to something like this "GetAction("com.mine","Location").call( #Location )"
